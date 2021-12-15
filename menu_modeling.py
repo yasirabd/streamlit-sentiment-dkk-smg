@@ -17,7 +17,8 @@ def display_modeling():
     berikut.
     """
     st.markdown(text, unsafe_allow_html=True)
-
+    acc = Image.open('images/Accuracy Score.png')
+    st.image(acc, caption='Accuracy Score', width=400)
 
     text = """
     Pembahasan masing-masing metode dijelaskan di bawah.
@@ -230,13 +231,13 @@ def display_modeling():
     Untuk meningkatkan performa model, dilakukan *hyperparameter tuning* menggunakan `GridSearchCV`. 
     Berikut ini adalah tabel *hyperparameter*.
 
-    | Hyperparameter            | Kombinasi                  |
-    |---------------------------|----------------------------|
-    | `n_estimators`            | `[800, 1200, 1500, 1800]`  |
-    | `min_samples_leaf`        | `[1, 2, 3]`                |
-    | `min_samples_split`       | `[8, 10, 12]`              |
-    | `bootstrap`               | `[True, False]`            |
-    | `criterion`               | `[gini, entropy]`          |
+    | Hyperparameter            | Kombinasi                       |
+    |---------------------------|---------------------------------|
+    | `n_estimators`            | `[800, 1200, 1500, 1800, 2000]` |
+    | `min_samples_leaf`        | `[1, 2, 3, 4]`                  |
+    | `min_samples_split`       | `[8, 10, 12]`                   |
+    | `bootstrap`               | `[True, False]`                 |
+    | `criterion`               | `[gini, entropy]`               |
     <br>
 
     ##### Random Forest dengan TF-IDF
@@ -259,17 +260,29 @@ def display_modeling():
 
     | Hyperparameter            | Kombinasi Terbaik |
     |---------------------------|-------------------|
-    | `n_estimators`            | `[800, 1200, 1500, 1800]`  |
-    | `min_samples_leaf`        | `[1, 2, 3]`                |
-    | `min_samples_split`       | `[8, 10, 12]`              |
-    | `bootstrap`               | `[True, False]`            |
-    | `criterion`               | `[gini, entropy]`          |
+    | `n_estimators`            | `2000`            |
+    | `min_samples_leaf`        | `4`               |
+    | `min_samples_split`       | `10`              |
+    | `bootstrap`               | `False`           |
+    | `criterion`               | `gini`            |
     <br>
 
-    Setelah dilakukan *tuning hyperparameter*, nilai akurasi **menurun 0.6%** pada data test. Hasil akurasi skor dapat 
+    Setelah dilakukan *tuning hyperparameter*, nilai akurasi **meningkat 2.15%** pada data test. Hasil akurasi skor dapat 
     dilihat pada tabel Accuracy Score Random Forest di bawah.
+    """
+    st.markdown(text, unsafe_allow_html=True)
+    rf_acc = Image.open('images/Random Forest Accuracy.png')
+    st.image(rf_acc, caption='Accuracy Score Random Forest', width=400)
+    st.info("Tuning hyperparameter pada fitur Word2Vec menggunakan `RandomizedSearchCV`")
+    st.error("Model Word2Vec Random Forest setelah tuning tidak dihitung accuracy score untuk data training 5-fold karena proses sangat lama.")
 
+    text = """
     ### Pembahasan
+    Berdasarkan hasil training dan testing model, dapat kita ketahui: 
+    - Model terbaik adalah model **TF-IDF Random Forest** setelah dilakukan *tuning hyperparameter* dengan **akurasi 72.89%** pada data test.
+    - Model dengan *feature extraction* TF-IDF memiliki akurasi lebih tinggi dari Word2Vec karena banyaknya kata-kata yang tidak 
+    terdapat vector-nya pada model Word2Vec. Misalkan: kata bahasa jawa; engko, mlebu, dan ngeles.
+    - Hasil akurasi pada model TF-IDF Random Forest setelah *tuning* pada data train 5-fold dan data test mirip, artinya model sudah konvergen.
     """
     st.markdown(text, unsafe_allow_html=True)
 
