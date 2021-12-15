@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import webbrowser
 from menu_home import display_home
 from menu_data_collection import display_data_collection
 from menu_data_annotation import display_data_annotation
@@ -14,8 +15,13 @@ st.set_page_config(layout="wide")
 
 # menu sidebar
 list_menu = ['Home', 'Data Collection', 'Data Annotation', 'Exploratory Data Analysis', 'Data Preprocessing', 
-             'Feature Extraction', 'Modeling', 'Inference', 'Deployment']
+             'Feature Extraction', 'Modeling', 'Inference']
 menu_choice = st.sidebar.selectbox("Select a menu", list_menu)
+
+url = 'https://shrouded-dusk-24137.herokuapp.com/'
+if st.sidebar.button('Demo Sentiment Analysis 🚀'):
+    webbrowser.open_new_tab(url)
+
 st.sidebar.title('Teams')
 text = """
 1. Alfi Fauzia Hanifah ([LinkedIn](https://www.linkedin.com/in/alfifauziahanifah/) / [IG](https://www.instagram.com/alfifao/))
