@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-import webbrowser
 from menu_home import display_home
 from menu_data_collection import display_data_collection
 from menu_data_annotation import display_data_annotation
@@ -18,9 +17,8 @@ list_menu = ['Home', 'Data Collection', 'Data Annotation', 'Exploratory Data Ana
              'Feature Extraction', 'Modeling', 'Inference']
 menu_choice = st.sidebar.selectbox("Select a menu", list_menu)
 
-url = 'https://shrouded-dusk-24137.herokuapp.com/'
-if st.sidebar.button('Demo Sentiment Analysis 🚀'):
-    webbrowser.open_new_tab(url)
+link = '[Demo Sentiment Analysis 🚀](https://shrouded-dusk-24137.herokuapp.com/)'
+st.sidebar.markdown(link, unsafe_allow_html=True)
 
 st.sidebar.title('Teams')
 text = """
