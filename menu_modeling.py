@@ -289,7 +289,7 @@ def display_modeling():
     text = """
     ## Convolutional Neural Network
     *Convolutional Neural Network* (CNN) adalah salah satu jenis neural network yang biasa digunakan pada data 
-    dua dimensi. CNN bisa digunakan untuk mendeteksi dan mengenali objek. Penggunanya tidak terbatas pada gambar, 
+    dua dimensi. CNN bisa digunakan untuk mendeteksi dan mengenali objek. Penggunaannya tidak terbatas pada gambar, 
     namun bisa juga digunakan untuk memecahkan masalah dalam *natural language processing* dan *speech recognition*. 
     CNN termasuk dalam jenis Deep Neural Network karena dalamnya tingkat jaringan dan banyak diimplementasikan 
     dalam data citra. CNN memiliki dua metode; yakni klasifikasi menggunakan *feedforward* dan tahap pembelajaran 
@@ -428,6 +428,7 @@ def display_modeling():
     | `lstm_out`       | `[32, 48, 64]`       |
     | `dropout`        | `[0.2, 0.5, 0.8]`    |
     | `learning_rate`  | `[0.1, 0.01, 0.001]` |
+    <br>
     
     ##### LSTM dengan TF-IDF
     Hasil kombinasi terbaik untuk model LSTM dengan masukan data hasil feature extraction TF-IDF sebagai berikut.

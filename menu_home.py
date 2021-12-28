@@ -12,7 +12,7 @@ from collections import Counter
 
 def display_home():
     st.markdown(f'<h1 style="font-weight:bolder;font-size:40px;color:black;text-align:center;">Sentiment Analysis Komentar Instagram</h1>', unsafe_allow_html=True)
-    st.markdown(f'<h3 style="font-weight:normal;font-size:18px;color:gray;text-align:center;">Study Case: Dinas Kesehatan Kota Semarang (@dkksemarang)</h1>', unsafe_allow_html=True)
+    st.markdown(f'<h3 style="font-weight:normal;font-size:18px;color:gray;text-align:center;">Studi Kasus: Dinas Kesehatan Kota Semarang (@dkksemarang)</h1>', unsafe_allow_html=True)
 
     # read dataset
     df_comments = pd.read_csv('data/data_complete_visualization.csv')
